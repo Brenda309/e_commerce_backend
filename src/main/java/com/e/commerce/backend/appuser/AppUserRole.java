@@ -1,4 +1,4 @@
-package com.quiz.app.exam.e_commerce_backend.appuser;
+package com.e.commerce.backend.appuser;
 
 public enum AppUserRole {
         USER,

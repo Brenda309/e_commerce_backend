@@ -1,14 +1,24 @@
-package com.quiz.app.exam.e_commerce_backend.securityConfig;
+package com.e.commerce.backend.securityConfig;
 
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import com.e.commerce.backend.securityConfig.PasswordEncoder;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+@Configuration
+@EnableWebSecurity
+@AllArgsConstructor
 public class WebSecurityConfiguration {
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -21,10 +31,11 @@ public class WebSecurityConfiguration {
         return http.build();
 
     }
-//    @Bean
-//    DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+    @Bean
+            public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 //        provider.setUserDetailsService(appUserService);
-//        provider.setPasswordEncoder(bCryptPasswordEncoder);
-//        return provider;
-
+        provider.setPasswordEncoder(bCryptPasswordEncoder);
+        return provider;
+    }
 }

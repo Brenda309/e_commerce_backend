@@ -1,4 +1,4 @@
-package com.quiz.app.exam.e_commerce_backend;
+package com.e.commerce.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
