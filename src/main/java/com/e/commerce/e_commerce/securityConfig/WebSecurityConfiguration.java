@@ -1,5 +1,6 @@
-package com.e.commerce.backend.securityConfig;
+package com.e.commerce.e_commerce.securityConfig;
 
+import com.e.commerce.e_commerce.appuser.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import com.e.commerce.backend.securityConfig.PasswordEncoder;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -18,6 +18,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 @AllArgsConstructor
 public class WebSecurityConfiguration {
+    private final AppUserService appUserService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -32,9 +33,9 @@ public class WebSecurityConfiguration {
 
     }
     @Bean
-            public AuthenticationProvider authenticationProvider() {
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-//        provider.setUserDetailsService(appUserService);
+        provider.setUserDetailsService(appUserService);
         provider.setPasswordEncoder(bCryptPasswordEncoder);
         return provider;
     }

@@ -1,8 +1,7 @@
-package com.e.commerce.backend.registration.Token;
+package com.e.commerce.e_commerce.registration.Token;
 
 
 import jakarta.transaction.Transactional;
-import jdk.incubator.vector.LongVector;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

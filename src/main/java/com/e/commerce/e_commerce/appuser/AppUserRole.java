@@ -1,4 +1,4 @@
-package com.e.commerce.backend.appuser;
+package com.e.commerce.e_commerce.appuser;
 
 public enum AppUserRole {
         USER,

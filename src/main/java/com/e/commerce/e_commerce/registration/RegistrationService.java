@@ -1,11 +1,11 @@
-package com.e.commerce.backend.registration;
+package com.e.commerce.e_commerce.registration;
 
-import com.e.commerce.backend.appuser.AppUser;
-import com.e.commerce.backend.appuser.AppUserRole;
-import com.e.commerce.backend.appuser.AppUserService;
-import com.e.commerce.backend.email.EmailSender;
-import com.e.commerce.backend.registration.Token.ConfirmationToken;
-import com.e.commerce.backend.registration.Token.ConfirmationTokenService;
+import com.e.commerce.e_commerce.appuser.AppUser;
+import com.e.commerce.e_commerce.appuser.AppUserRole;
+import com.e.commerce.e_commerce.appuser.AppUserService;
+import com.e.commerce.e_commerce.email.EmailSender;
+import com.e.commerce.e_commerce.registration.Token.ConfirmationToken;
+import com.e.commerce.e_commerce.registration.Token.ConfirmationTokenService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,12 +26,13 @@ import java.time.LocalDateTime;
             if (!isValidEmail) {
                 throw new IllegalStateException("Email not valid");
             }
+            AppUserRole role = request.getEmail().equals("admin@gmail.com") ? AppUserRole.ADMIN : AppUserRole.USER;
             String token = appUserService.signUpUser(new AppUser(
                     request.getFirstName(),
                     request.getLastName(),
                     request.getEmail(),
                     request.getPassword(),
-                    AppUserRole.USER
+                   role
             ));
             String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
             emailSender.send(request.getEmail(),buildEmail(request.getFirstName(),link));

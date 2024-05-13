@@ -1,4 +1,4 @@
-package com.e.commerce.backend.registration;
+package com.e.commerce.e_commerce.registration;
 
 import org.springframework.stereotype.Service;
 

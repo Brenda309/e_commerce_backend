@@ -1,4 +1,4 @@
-package com.e.commerce.backend.registration.Token;
+package com.e.commerce.e_commerce.registration.Token;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

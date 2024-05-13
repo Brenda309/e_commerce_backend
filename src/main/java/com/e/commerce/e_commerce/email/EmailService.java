@@ -1,4 +1,4 @@
-package com.e.commerce.backend.email;
+package com.e.commerce.e_commerce.email;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;

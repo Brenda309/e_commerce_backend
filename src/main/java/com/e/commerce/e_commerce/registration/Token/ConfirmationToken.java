@@ -1,6 +1,6 @@
-package com.e.commerce.backend.registration.Token;
+package com.e.commerce.e_commerce.registration.Token;
 
-import com.e.commerce.backend.appuser.AppUser;
+import com.e.commerce.e_commerce.appuser.AppUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

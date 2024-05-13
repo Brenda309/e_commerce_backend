@@ -1,4 +1,4 @@
-package com.e.commerce.backend.appuser;
+package com.e.commerce.e_commerce.appuser;
 
 import jakarta.persistence.*;
 import lombok.*;

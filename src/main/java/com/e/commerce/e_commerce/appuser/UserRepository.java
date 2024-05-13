@@ -1,6 +1,5 @@
-package com.e.commerce.backend.appuser;
+package com.e.commerce.e_commerce.appuser;
 
-import jakarta.transaction.Transactional.TxType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

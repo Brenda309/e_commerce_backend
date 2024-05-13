@@ -1,7 +1,7 @@
-package com.e.commerce.backend.appuser;
+package com.e.commerce.e_commerce.appuser;
 
-import com.e.commerce.backend.registration.Token.ConfirmationToken;
-import com.e.commerce.backend.registration.Token.ConfirmationTokenService;
+import com.e.commerce.e_commerce.registration.Token.ConfirmationToken;
+import com.e.commerce.e_commerce.registration.Token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
